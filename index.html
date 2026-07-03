@@ -81,6 +81,10 @@
       box-shadow: var(--shadow);
     }
 
+    .hero > div {
+      min-width: 0;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -113,6 +117,40 @@
       margin: 22px 0 0;
       color: var(--muted);
       font-size: 1.06rem;
+    }
+
+    .language-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .language-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .language-nav a:hover,
+    .language-nav a:focus {
+      border-color: rgba(35, 100, 170, 0.42);
+      color: var(--accent-strong);
+      outline: none;
+    }
+
+    .language-nav a.active {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
     }
 
     .meta-panel {
@@ -447,6 +485,11 @@
           안내가 본 공통 약관보다 우선 적용됩니다. 본 데이터를 구입, 다운로드, 설치 또는
           사용한 시점에서 구매자는 본 이용 약관에 동의한 것으로 간주합니다.
         </p>
+        <nav class="language-nav" aria-label="언어 선택">
+          <a class="active" href="index.html" aria-current="page">한국어</a>
+          <a href="ja.html" lang="ja">日本語</a>
+          <a href="en.html" lang="en">English</a>
+        </nav>
       </div>
 
       <aside class="meta-panel" aria-label="약관 기본 정보">
