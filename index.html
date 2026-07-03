@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RVC용 음성 변환 모델 데이터 상품 이용 약관 및 라이선스 안내">
+  <title>RVC 음성 변환 모델 이용 약관</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-muted: #eef3f8;
+      --text: #172033;
+      --muted: #637083;
+      --line: #dce4ee;
+      --accent: #2364aa;
+      --accent-strong: #174d86;
+      --danger: #b42318;
+      --success: #24745b;
+      --shadow: 0 18px 50px rgba(23, 32, 51, 0.11);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        linear-gradient(180deg, rgba(35, 100, 170, 0.09), rgba(245, 247, 251, 0) 360px),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.72;
+      word-break: keep-all;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -48px;
+      z-index: 20;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--text);
+      color: #fff;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 28px;
+      align-items: end;
+      padding: 40px;
+      border: 1px solid rgba(35, 100, 170, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 12px;
+      color: var(--accent-strong);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 4.25rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .meta-panel {
+      display: grid;
+      gap: 12px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+
+    .meta-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .meta-label {
+      color: var(--muted);
+    }
+
+    .meta-value {
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+      margin-top: 28px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .toc-title {
+      margin: 0 0 12px;
+      font-weight: 800;
+    }
+
+    .toc nav {
+      display: grid;
+      gap: 2px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 7px 8px;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      text-decoration: none;
+    }
+
+    .toc a:hover,
+    .toc a:focus {
+      background: var(--surface-muted);
+      color: var(--accent-strong);
+      outline: none;
+    }
+
+    .content {
+      display: grid;
+      gap: 20px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .summary-card,
+    .terms-section,
+    .notice {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 10px 30px rgba(23, 32, 51, 0.05);
+    }
+
+    .summary-card {
+      padding: 20px;
+    }
+
+    .summary-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      letter-spacing: 0;
+    }
+
+    .summary-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .summary-card.warning {
+      border-color: rgba(180, 35, 24, 0.3);
+      background: #fffafa;
+    }
+
+    .summary-card.warning h2 {
+      color: var(--danger);
+    }
+
+    .summary-card.allowed {
+      border-color: rgba(36, 116, 91, 0.28);
+      background: #f7fffc;
+    }
+
+    .summary-card.allowed h2 {
+      color: var(--success);
+    }
+
+    .notice {
+      padding: 22px 24px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .notice p {
+      margin: 0;
+    }
+
+    .terms-section {
+      scroll-margin-top: 24px;
+      overflow: hidden;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-muted);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      letter-spacing: 0;
+    }
+
+    .section-count {
+      flex: 0 0 auto;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .section-body {
+      padding: 24px;
+    }
+
+    .section-body p {
+      margin: 0 0 12px;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: terms;
+    }
+
+    .terms-list li {
+      position: relative;
+      min-height: 42px;
+      padding: 8px 0 8px 52px;
+      counter-increment: terms;
+    }
+
+    .terms-list li::before {
+      content: counter(terms);
+      position: absolute;
+      left: 0;
+      top: 8px;
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface-muted);
+      color: var(--accent-strong);
+      font-size: 0.84rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    #personal .terms-list {
+      counter-reset: terms 5;
+    }
+
+    #commercial .terms-list {
+      counter-reset: terms 9;
+    }
+
+    #prohibited .terms-list {
+      counter-reset: terms 14;
+    }
+
+    #outputs .terms-list {
+      counter-reset: terms 23;
+    }
+
+    #refund .terms-list {
+      counter-reset: terms 27;
+    }
+
+    #disclaimer .terms-list {
+      counter-reset: terms 32;
+    }
+
+    #violation .terms-list {
+      counter-reset: terms 36;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding: 28px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 30px;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .toc nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        word-break: normal;
+      }
+
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding: 18px 0 40px;
+      }
+
+      .hero,
+      .section-body,
+      .notice {
+        padding: 20px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 20px;
+      }
+
+      .toc nav {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-item {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .meta-value {
+        text-align: left;
+      }
+
+      .terms-list li {
+        padding-left: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#terms">본문으로 이동</a>
+
+  <main class="page" id="top">
+    <header class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">RVC Voice Conversion Model</p>
+        <h1 id="page-title">RVC 음성 변환 모델 이용 약관</h1>
+        <p class="lead">
+          본 상품은 RVC용 음성 변환 모델 데이터입니다. 구매자는 본 상품을 구매,
+          다운로드 또는 설치한 시점에서 아래 이용 약관에 동의한 것으로 간주합니다.
+          구매 전 반드시 본 이용 약관을 확인해주시기 바랍니다.
+        </p>
+      </div>
+
+      <aside class="meta-panel" aria-label="약관 기본 정보">
+        <div class="meta-item">
+          <span class="meta-label">문서 종류</span>
+          <span class="meta-value">상품 이용 약관</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">대상 상품</span>
+          <span class="meta-value">RVC용 음성 변환 모델 데이터</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">최종 업데이트</span>
+          <span class="meta-value">2026.07.03</span>
+        </div>
+      </aside>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="약관 목차">
+        <p class="toc-title">목차</p>
+        <nav>
+          <a href="#license">라이선스 범위</a>
+          <a href="#personal">개인 이용</a>
+          <a href="#commercial">상업 이용</a>
+          <a href="#prohibited">금지 행위</a>
+          <a href="#outputs">결과물 이용</a>
+          <a href="#refund">환불 및 지원</a>
+          <a href="#disclaimer">면책 조항</a>
+          <a href="#violation">약관 위반 시 조치</a>
+          <a href="#final">최종 확인</a>
+        </nav>
+      </aside>
+
+      <div class="content" id="terms">
+        <section class="summary-grid" aria-label="주요 안내">
+          <article class="summary-card allowed">
+            <h2>개인용 라이선스</h2>
+            <p>구매자 본인의 비상업적 영상, 노래, 녹음, 실시간 음성 변조, VRChat, Discord, 취미 활동에 사용할 수 있습니다.</p>
+          </article>
+          <article class="summary-card allowed">
+            <h2>상업용 라이선스</h2>
+            <p>구매자 본인의 수익화 콘텐츠와 창작물 제작에 사용할 수 있으나, 모델 파일 자체의 공유나 납품은 금지됩니다.</p>
+          </article>
+          <article class="summary-card warning">
+            <h2>공유 및 재배포 금지</h2>
+            <p>모델 파일, 설정 파일, 학습 결과물, 샘플 데이터, 압축 파일 및 기타 구성 파일은 제3자에게 전달할 수 없습니다.</p>
+          </article>
+        </section>
+
+        <section class="notice" aria-label="약관 동의 안내">
+          <p>
+            본 데이터를 구입, 다운로드, 설치 또는 사용한 시점에서 구매자는 본 이용 약관에 동의한 것으로 간주합니다.
+            개인용 라이선스와 상업용 라이선스의 이용 범위가 다르므로, 사용 목적에 맞는 라이선스를 구매해주시기 바랍니다.
+          </p>
+        </section>
+
+        <section class="terms-section" id="license" aria-labelledby="license-title">
+          <div class="section-heading">
+            <h2 id="license-title">라이선스 범위</h2>
+            <span class="section-count">1-5</span>
+          </div>
+          <div class="section-body">
+            <ol class="terms-list">
+              <li>본 상품의 저작권 및 관련 권리는 판매자에게 있으며, 구매자는 본 약관에서 허용된 범위 내에서만 사용할 수 있는 이용권을 부여받습니다.</li>
+              <li>본 상품은 구매자 본인 1인 또는 구매한 계정 본인만 사용할 수 있습니다.</li>
+              <li>본 상품에 포함된 모델 파일, 설정 파일, 학습 결과물, 샘플 데이터, 압축 파일 및 기타 구성 파일을 제3자에게 양도, 공유, 대여, 재판매, 재배포하는 행위를 금지합니다.</li>
+              <li>가족, 친구, 지인, 커뮤니티, 회사, 팀, 클라이언트 등 제3자와 파일을 공유하는 행위도 금지됩니다.</li>
+              <li>클라우드 저장소, 파일 공유 서비스, Discord, Google Drive, GitHub, 토렌트, 커뮤니티 게시글 등을 통해 본 상품 파일을 업로드하거나 공유하는 행위를 금지합니다.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="terms-section" id="personal" aria-labelledby="personal-title">
+          <div class="section-heading">
+            <h2 id="personal-title">개인 이용</h2>
+            <span class="section-count">6-9</span>
+          </div>
+          <div class="section-body">
+            <ol class="terms-list">
+              <li>개인용 라이선스는 구매자 본인의 비상업적 이용을 목적으로 합니다.</li>
+              <li>개인용 라이선스는 개인적인 영상, 노래, 녹음, 실시간 음성 변조, VRChat, Discord, 취미 활동 등에 사용할 수 있습니다.</li>
+              <li>개인용 라이선스로 수익이 발생하는 콘텐츠, 유료 의뢰, 광고, 후원, 멤버십, 유료 방송, 판매용 콘텐츠, 기업/단체 프로젝트 등에 사용하는 것은 금지됩니다.</li>
+              <li>상업적 이용이 필요한 경우 반드시 상업용 라이선스를 구매해야 합니다.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="terms-section" id="commercial" aria-labelledby="commercial-title">
+          <div class="section-heading">
+            <h2 id="commercial-title">상업 이용</h2>
+            <span class="section-count">10-14</span>
+          </div>
+          <div class="section-body">
+            <ol class="terms-list">
+              <li>상업용 라이선스를 구매한 경우, 구매자 본인의 수익화 콘텐츠, 유료 영상, 방송, 노래, 음성 콘텐츠, VRChat 활동, 기타 창작물 제작에 사용할 수 있습니다.</li>
+              <li>상업용 라이선스는 본 상품의 모델 파일 자체를 판매, 양도, 공유하거나 납품하는 권리를 포함하지 않습니다.</li>
+              <li>의뢰 작업이나 외주 작업에 사용할 경우, 최종 결과물인 영상, 음성, 노래, 녹음물 등은 납품할 수 있으나, 모델 파일 자체를 클라이언트에게 전달하는 것은 금지됩니다.</li>
+              <li>회사, 팀, 단체, 여러 명이 함께 사용하는 경우에는 사용자별로 별도 라이선스를 구매해야 합니다.</li>
+              <li>상업용 라이선스를 구매하더라도 본 상품을 기반으로 새로운 음성 모델, 데이터셋, 파생 모델, 판매용 음성 변환 상품을 제작하여 판매하는 것은 금지됩니다.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="terms-section" id="prohibited" aria-labelledby="prohibited-title">
+          <div class="section-heading">
+            <h2 id="prohibited-title">금지 행위</h2>
+            <span class="section-count">15-23</span>
+          </div>
+          <div class="section-body">
+            <ol class="terms-list">
+              <li>본 상품의 모델 파일을 수정, 변환, 재학습, 병합, 추출, 리버스 엔지니어링하여 별도의 모델이나 데이터셋으로 재배포 또는 판매하는 행위를 금지합니다.</li>
+              <li>본 상품을 다른 AI 모델, 음성 모델, 음성 데이터셋, 학습용 데이터 제작에 사용하는 행위를 금지합니다.</li>
+              <li>본 상품을 이용하여 실존 인물, 제3자, 유명인, 지인, 성우, 방송인, 스트리머, 버튜버 등을 사칭하거나, 타인을 속이는 행위를 금지합니다.</li>
+              <li>본 상품을 이용해 생성한 음성이 실제 본인의 목소리가 아님을 필요한 경우 명시해야 합니다.</li>
+              <li>사기, 협박, 명예훼손, 허위 정보 유포, 보이스피싱, 스팸, 사칭, 개인정보 침해 등 타인에게 피해를 줄 수 있는 목적으로 사용하는 것을 금지합니다.</li>
+              <li>정치, 종교, 혐오, 차별, 선동, 불법 행위, 범죄 행위, 공서양속에 반하는 행위에 사용하는 것을 금지합니다.</li>
+              <li>미성년자를 대상으로 한 부적절한 콘텐츠, 비동의 성적 콘텐츠, 괴롭힘, 모욕, 협박, 스토킹, 사생활 침해 목적의 사용을 금지합니다.</li>
+              <li>본 상품을 사용하여 제작한 결과물을 통해 제3자의 권리, 명예, 초상권, 음성권, 저작권, 개인정보, 기타 법적 권리를 침해해서는 안 됩니다.</li>
+              <li>BOOTH 이용약관, pixiv 관련 약관, 각 플랫폼의 규정 및 구매자 거주 국가의 관련 법령을 위반하는 방식으로 사용할 수 없습니다.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="terms-section" id="outputs" aria-labelledby="outputs-title">
+          <div class="section-heading">
+            <h2 id="outputs-title">결과물 이용</h2>
+            <span class="section-count">24-27</span>
+          </div>
+          <div class="section-body">
+            <ol class="terms-list">
+              <li>구매자는 본 상품을 사용하여 생성한 음성 결과물을 본 약관의 범위 내에서 사용할 수 있습니다.</li>
+              <li>단, 생성된 결과물이 본 약관 또는 관련 법령, 플랫폼 규정을 위반하는 경우 판매자는 해당 사용을 허용하지 않습니다.</li>
+              <li>생성된 음성 결과물의 게시, 배포, 수익화, 공개로 인해 발생하는 모든 책임은 구매자에게 있습니다.</li>
+              <li>본 상품을 사용했다는 사실을 숨기고 타인을 기망하거나, 실제 인물의 발언처럼 오인하게 만드는 방식의 사용을 금지합니다.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="terms-section" id="refund" aria-labelledby="refund-title">
+          <div class="section-heading">
+            <h2 id="refund-title">환불 및 지원</h2>
+            <span class="section-count">28-32</span>
+          </div>
+          <div class="section-body">
+            <ol class="terms-list">
+              <li>본 상품은 디지털 다운로드 상품의 특성상, 구매 및 다운로드 이후 단순 변심, 사용 환경 문제, 사용 방법 미숙지, 기대한 음성과 다르다는 사유로 환불이 불가능합니다.</li>
+              <li>파일 오류, 누락, 다운로드 문제 등 판매자 측의 명백한 문제가 확인될 경우, 판매자는 가능한 범위 내에서 수정 파일 제공 또는 재다운로드 안내를 할 수 있습니다.</li>
+              <li>RVC 프로그램, 가상 오디오 장치, 마이크 설정, VRChat, Discord, 녹음 프로그램 등 외부 프로그램의 설치 및 사용 문제에 대해 판매자는 책임지지 않습니다.</li>
+              <li>본 상품은 사용자의 장비, 마이크, 발음, 억양, 녹음 환경, RVC 설정값에 따라 결과 품질이 달라질 수 있습니다.</li>
+              <li>구매자의 사용 환경에서 정상적으로 작동하지 않는 경우에도, 상품 파일 자체에 문제가 없는 한 환불 사유가 되지 않습니다.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="terms-section" id="disclaimer" aria-labelledby="disclaimer-title">
+          <div class="section-heading">
+            <h2 id="disclaimer-title">면책 조항</h2>
+            <span class="section-count">33-36</span>
+          </div>
+          <div class="section-body">
+            <ol class="terms-list">
+              <li>본 상품 사용으로 인해 발생하는 계정 정지, 플랫폼 제재, 법적 분쟁, 금전적 손실, 평판 손상, 제3자와의 분쟁, 기타 불이익에 대해 판매자는 책임을 지지 않습니다.</li>
+              <li>구매자는 본 상품을 자신의 책임하에 사용해야 하며, 사용 과정에서 발생하는 모든 법적·도덕적 책임은 구매자 본인에게 있습니다.</li>
+              <li>판매자는 본 상품이 구매자의 특정 목적, 사용 환경, 음성 품질 기대치, 상업적 성과를 반드시 충족한다고 보장하지 않습니다.</li>
+              <li>본 상품의 내용, 가격, 구성, 약관은 필요에 따라 사전 고지 없이 변경될 수 있습니다. 단, 이미 구매한 상품 파일의 기본 이용권은 구매 당시의 약관을 기준으로 합니다.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="terms-section" id="violation" aria-labelledby="violation-title">
+          <div class="section-heading">
+            <h2 id="violation-title">약관 위반 시 조치</h2>
+            <span class="section-count">37-39</span>
+          </div>
+          <div class="section-body">
+            <ol class="terms-list">
+              <li>구매자가 본 약관을 위반한 경우, 판매자는 추가 지원을 거부할 수 있습니다.</li>
+              <li>약관 위반으로 인해 발생한 문제에 대해 판매자는 책임지지 않으며, 필요한 경우 플랫폼 신고, 이용 제한 요청, 법적 조치를 취할 수 있습니다.</li>
+              <li>본 상품의 무단 공유, 재판매, 재배포, 불법 업로드가 확인될 경우, 판매자는 해당 행위의 중단 요청 및 손해배상을 청구할 수 있습니다.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="terms-section" id="final" aria-labelledby="final-title">
+          <div class="section-heading">
+            <h2 id="final-title">최종 확인</h2>
+            <span class="section-count">동의 안내</span>
+          </div>
+          <div class="section-body">
+            <p>본 데이터를 구입, 다운로드, 설치 또는 사용한 시점에서 구매자는 본 이용 약관에 동의한 것으로 간주합니다.</p>
+            <p>본 데이터를 구매하기 전 반드시 이용 약관, 상품 설명, 라이선스 종류를 확인해주세요.</p>
+            <p>개인용 라이선스와 상업용 라이선스의 이용 범위가 다르므로, 사용 목적에 맞는 라이선스를 구매해주시기 바랍니다.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026. All rights reserved.</p>
+    </footer>
+  </main>
+</body>
+</html>
